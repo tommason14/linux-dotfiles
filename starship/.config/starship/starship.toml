@@ -1,0 +1,14 @@
+# Inserts a blank line between shell prompts
+add_newline = false 
+
+format="$directory$character"
+
+[character] 
+success_symbol = "[\\$](bold green)"
+error_symbol = "[\\$](bold red)"
+vicmd_symbol = "[vi](bold green)"
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+

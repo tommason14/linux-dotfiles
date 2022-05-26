@@ -1,0 +1,201 @@
+font:
+  # normal:
+  #   family: Hack Nerd Font 
+  # size: 12
+  normal:
+    family: UbuntuMono Nerd Font
+  size: 14
+
+window:
+  padding:
+    x: 15
+    y: 15
+  opacity: 0.9
+
+scrolling:
+  history: 10000
+
+cursor:
+  style:
+    shape: Beam
+
+selection:
+  save_to_clipboard: true
+
+dynamic_title: true
+
+hints:
+  mouse:
+    enabled: true
+
+key_bindings:
+  # vim comments
+  - { key: Slash, mods: Super, chars: ",c" }
+
+schemes:
+  nord: &nord
+    primary:
+      background: '#2E3440'
+      foreground: '#D8DEE9'
+    cursor:
+      text: CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text: CellBackground
+      cursor: CellForeground
+    normal:
+      black:   '#3B4252'
+      red:     '#BF616A'
+      green:   '#A3BE8C'
+      yellow:  '#EBCB8B'
+      blue:    '#81A1C1'
+      magenta: '#B48EAD'
+      cyan:    '#88C0D0'
+      white:   '#E5E9F0'
+    bright:
+      black:   '#4C566A'
+      red:     '#BF616A'
+      green:   '#A3BE8C'
+      yellow:  '#EBCB8B'
+      blue:    '#81A1C1'
+      magenta: '#B48EAD'
+      cyan:    '#8FBCBB'
+      white:   '#ECEFF4'
+
+  catppuccin: &catppuccin
+    # Default colors
+    primary:
+      background: '0x1E1D2F'
+      foreground: '0xD9E0EE'
+
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text: '0x1E1D2F'
+      cursor: '0xF5E0DC'
+
+    # Normal colors
+    normal:
+      black:   '0x6E6C7E'
+      red:     '0xF28FAD'
+      green:   '0xABE9B3'
+      yellow:  '0xFAE3B0'
+      blue:    '0x96CDFB'
+      magenta: '0xF5C2E7'
+      cyan:    '0x89DCEB'
+      white:   '0xD9E0EE'
+
+    # Bright colors
+    bright:
+      black:   '0x988BA2'
+      red:     '0xF28FAD'
+      green:   '0xABE9B3'
+      yellow:  '0xFAE3B0'
+      blue:    '0x96CDFB'
+      magenta: '0xF5C2E7'
+      cyan:    '0x89DCEB'
+      white:   '0xD9E0EE'
+
+    indexed_colors:
+      - { index: 16, color: '0xF8BD96' }
+      - { index: 17, color: '0xF5E0DC' }
+
+  nightfly: &nightfly
+    primary:
+       background: '#011627'
+       foreground: '#acb4c2'
+    cursor:
+      text: '#fafafa'
+      cursor: '#9ca1aa'
+    selection:
+      text: '#080808'
+      background: '#b2ceee'
+    normal:
+      black:   '#1d3b53'
+      red:     '#fc514e'
+      green:   '#a1cd5e'
+      yellow:  '#e3d18a'
+      blue:    '#82aaff'
+      magenta: '#c792ea'
+      cyan:    '#7fdbca'
+      white:   '#a1aab8'
+    bright:
+      black:   '#7c8f8f'
+      red:     '#ff5874'
+      green:   '#21c7a8'
+      yellow:  '#ecc48d'
+      blue:    '#82aaff'
+      magenta: '#ae81ff'
+      cyan:    '#7fdbca'
+      white:   '#d6deeb'
+
+  gruvbox_dark: &gruvbox_dark
+    # "hard" variant
+    primary:
+      background:        '#1d2021'
+      foreground:        '#ebdbb2'
+      bright_foreground: '#fbf1c7'
+      dim_foreground:    '#a89984'
+    cursor:
+      text:   CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text:   CellBackground
+      cursor: CellForeground
+    selection:
+      text:       CellBackground
+      background: CellForeground
+    bright:
+      black:   '#928374'
+      red:     '#fb4934'
+      green:   '#b8bb26'
+      yellow:  '#fabd2f'
+      blue:    '#83a598'
+      magenta: '#d3869b'
+      cyan:    '#8ec07c'
+      white:   '#ebdbb2'
+    normal:
+      black:   '#1d2021'
+      red:     '#cc241d'
+      green:   '#98971a'
+      yellow:  '#d79921'
+      blue:    '#458588'
+      magenta: '#b16286'
+      cyan:    '#689d6a'
+      white:   '#a89984'
+    dim:
+      black:   '#32302f'
+      red:     '#9d0006'
+      green:   '#79740e'
+      yellow:  '#b57614'
+      blue:    '#076678'
+      magenta: '#8f3f71'
+      cyan:    '#427b58'
+      white:   '#928374'
+
+  deus: &deus
+    primary:
+      background: '#2c323b'
+      foreground: '#eaeaea'
+    normal:
+      black:   '#242a32'
+      red:     '#d54e53'
+      green:   '#98c379'
+      yellow:  '#e5c07b'
+      blue:    '#83a598'
+      magenta: '#c678dd'
+      cyan:    '#70c0ba'
+      white:   '#eaeaea'
+    bright:
+      black:   '#666666'
+      red:     '#ec3e45'
+      green:   '#90c966'
+      yellow:  '#edbf69'
+      blue:    '#73ba9f'
+      magenta: '#c858e9'
+      cyan:    '#2bcec2'
+      white:   '#ffffff'
+
+# colors: *deus
+import:
+  - ~/.cache/wal/colors-alacritty.yml
+
