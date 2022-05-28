@@ -1,10 +1,15 @@
-#!/usr/bin/sh
+#!/bin/zsh
 
-sxhkd &
+# now run in ~/.xinitrc
+# sxhkd &
 ~/.screenlayout/two-monitor-xorg.sh
+lxqt-policykit-agent &
 
 bspc monitor eDP1 -d I II III IV V
-bspc monitor DP1 -d VI VII VIII IX X
+# external display is either DP1 (if plugged in on left side) or DP2 (if plugged in on right side)
+connected=$(xrandr | grep ' connected' | awk '{print $1}' | tr '\n' ' ')
+[[ $connected =~ DP2 ]] && external=DP2 || external=DP1
+bspc monitor $external -d VI VII VIII IX X
 
 bspc config border_width         2
 bspc config window_gap          20
@@ -20,7 +25,8 @@ bspc rule -a blueman-manager state=floating
 bspc rule -a VMD state=floating
 
 picom --backend glx --vsync &
-~/.fehbg &
-# feh --bg-fill $(cat ~/.cache/wal/wal) &
+# ~/.fehbg &
+wal -R & # otherwise background not set and polybar not launched...
+feh --bg-fill $(cat ~/.cache/wal/wal) &
 ~/.config/polybar/launch.sh &
-rclone mount --daemon gdrive: ~/gdrive --vfs-cache-mode full &  
+# rclone mount --daemon gdrive: ~/gdrive --vfs-cache-mode full &  

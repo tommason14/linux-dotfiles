@@ -4,14 +4,12 @@
 
 # terminal emulator
 super + Return
-	kitty
+	st
 
 # program launcher
 super + @space 
 	rofi -show drun -show-icons
 
-# super + d
-	# dmenu_run -fn 'Hack:size=10' -nb '#282c34' -nf '#abb2bf' -sb '#d88568' -sf '#f8f8f2'
 # dmenu with pywal colours
 super + d
 	~/bin/dmen_run
@@ -22,7 +20,7 @@ super + Escape
 
 # web browser
 super + b
-        brave-browser 
+        brave
 
 # bluetooth control
 super + shift + b
@@ -38,7 +36,11 @@ super + alt + c
 
 # select random wallpaper and run pywal
 super + alt + w 
-	bash ~/Documents/wallpapers/random_wallpaper.sh
+	~/wallpapers/random_wallpaper_linux.sh
+
+# unicode 
+super + alt + u 
+        ~/bin/unicode.sh
 
 # bspwm hotkeys
 

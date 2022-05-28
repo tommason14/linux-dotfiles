@@ -1,10 +1,7 @@
 font:
-  # normal:
-  #   family: Hack Nerd Font 
-  # size: 12
   normal:
-    family: UbuntuMono Nerd Font
-  size: 14
+    family: DejaVuSansMono Nerd Font
+  size: 12
 
 window:
   padding:
@@ -14,10 +11,6 @@ window:
 
 scrolling:
   history: 10000
-
-cursor:
-  style:
-    shape: Beam
 
 selection:
   save_to_clipboard: true

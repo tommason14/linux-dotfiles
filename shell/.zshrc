@@ -22,6 +22,8 @@ then
 fi
 export PATH 
 
+source ~/.zshrc-personal
+
 # Vi mode
 bindkey -v
 export KEYTIMEOUT=1
@@ -74,15 +76,15 @@ alias ozh="$EDITOR ~/.zshrc"
 #   [ -e ~/.theme_history ] && theme.sh "$(theme.sh -l|tail -n1)"
 #
 #   # Optional
-#   
+#
 #   #Binds C-o to the previously active theme.
-#   bind -x '"\C-o":"theme.sh $(theme.sh -l|tail -n2|head -n1)"'
-#   
+#   # bind -x '"\C-o":"theme.sh $(theme.sh -l|tail -n2|head -n1)"'
+#
 #   alias th='theme.sh -i'
-#   
+#
 #   # Interactively load a light theme
 #   alias thl='theme.sh --light -i'
-#   
+#
 #   # Interactively load a dark theme
 #   alias thd='theme.sh --dark -i'
 # fi
@@ -95,7 +97,7 @@ alias wr=~/wallpapers/random_wallpaper_linux.sh
 # use terminal transparency
 alias fzf='fzf --color "bg:-1"'
 # fzf for scrolling through history, if installed
-[[ -f /usr/share/fzf/shell/key-bindings.zsh ]] && source /usr/share/fzf/shell/key-bindings.zsh
+[[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
 
 gitall() {
   git pull # just in case
@@ -109,7 +111,7 @@ mkcd() {
   cd $1
 }
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 pymol(){
 /usr/bin/pymol $@ -d "@~/.config/pymol/pymolrc"
@@ -124,4 +126,4 @@ export PATH=$HOME/go/bin:$PATH
 # eval "$(starship init zsh)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme

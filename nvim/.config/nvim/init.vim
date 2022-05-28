@@ -392,14 +392,14 @@ hi Comment cterm=italic gui=italic " Work for cases with and without `set termgu
 hi Folded cterm=italic gui=italic guibg=NONE ctermbg=NONE " Italic and use terminal colours
 
 " Remove all backgrounds so that transparent background is used 
-" hi Normal guibg=NONE 
-" hi SignColumn guibg=NONE 
-" hi LineNr guibg=NONE 
-" hi MsgArea guibg=NONE
-" let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
-" let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
-" let s:palette.inactive.middle = s:palette.normal.middle
-" let s:palette.tabline.middle = s:palette.normal.middle
+hi Normal guibg=NONE 
+hi SignColumn guibg=NONE 
+hi LineNr guibg=NONE 
+hi MsgArea guibg=NONE
+let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
+let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
+let s:palette.inactive.middle = s:palette.normal.middle
+let s:palette.tabline.middle = s:palette.normal.middle
 
 " Changes style of highlighting
 hi clear SpellBad
