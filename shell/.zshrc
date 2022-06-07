@@ -33,7 +33,9 @@ bindkey "^?" backward-delete-char # backspace fix
 autoload -U compinit && compinit
 zstyle ':completion:*' menu select
 
+export BROWSER=brave
 export EDITOR=nvim
+export TERMINAL=st
 alias v="$EDITOR"
 alias vim="$EDITOR"
 
@@ -74,20 +76,8 @@ alias ozh="$EDITOR ~/.zshrc"
 # colours
 # if command -v theme.sh > /dev/null; then
 #   [ -e ~/.theme_history ] && theme.sh "$(theme.sh -l|tail -n1)"
-#
-#   # Optional
-#
-#   #Binds C-o to the previously active theme.
-#   # bind -x '"\C-o":"theme.sh $(theme.sh -l|tail -n2|head -n1)"'
-#
-#   alias th='theme.sh -i'
-#
-#   # Interactively load a light theme
-#   alias thl='theme.sh --light -i'
-#
-#   # Interactively load a dark theme
-#   alias thd='theme.sh --dark -i'
 # fi
+# darkmoss, oceanic next good with gruvbox vim theme
 
 # using pywal
 # cat ~/.cache/wal/sequences
@@ -117,10 +107,25 @@ pymol(){
 /usr/bin/pymol $@ -d "@~/.config/pymol/pymolrc"
 }
 
-export st=~/Documents/src-code/st
+export st=~/src/st
 
 export GOPATH=$HOME/go
 export PATH=$HOME/go/bin:$PATH
+
+# open split screen, vim on one side, python interpreter on the other
+python_scratchpad(){
+[[ $TERM_PROGRAM != "tmux" ]] && echo "Error: must run this inside a tmux session" && return 1
+tmux new-window -n python "nvim /tmp/tmp.py -c 'startinsert'" && tmux split-pane -h "python3" && tmux select-pane -t 0
+}
+
+# run pywal as normal, but don't want to overwrite ST terminal colours, so run xrdb after 
+wal(){
+  /home/tom/.local/bin/wal "$@" && xrdb ~/.Xresources
+}
+
+# apple bluetooth keyboard mapping
+bluetoothctl info C8:E0:EB:02:7A:DB | grep -q 'Connected: yes' && setxkbmap -option apple:badmap
+
 
 # export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 # eval "$(starship init zsh)"

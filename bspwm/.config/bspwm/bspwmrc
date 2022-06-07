@@ -20,13 +20,23 @@ bspc config gapless_monocle      true
 
 bspc config focus_follows_pointer true
 
-bspc rule -a pavucontrol state=floating
-bspc rule -a blueman-manager state=floating
+# names are the second class name given by xprop
+bspc rule -a Pavucontrol state=floating center=true focus=on
+bspc rule -a Blueman-manager state=floating center=true focus=on
 bspc rule -a VMD state=floating
+# for tdrop, st is given the name 'floating'
+bspc rule -a floating state=floating center=true focus=on
+bspc rule -a scratchpad state=floating center=true sticky=on hidden=on
+
+st -c scratchpad &
+
+libinput-gestures &
 
 picom --backend glx --vsync &
-# ~/.fehbg &
-wal -R & # otherwise background not set and polybar not launched...
 feh --bg-fill $(cat ~/.cache/wal/wal) &
-~/.config/polybar/launch.sh &
+~/.config/polybar/launch.sh
+# polybar calls pywal, so now reset terminal colours
+xrdb ~/.Xresources
+# set screen brightness to 30%
+light -S 30
 # rclone mount --daemon gdrive: ~/gdrive --vfs-cache-mode full &  

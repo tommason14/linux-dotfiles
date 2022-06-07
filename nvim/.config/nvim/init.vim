@@ -1,15 +1,9 @@
 " Plugins {{{1
 
-let g:colourlist = ["chester", "spacedust", "OceanicNext", "startrail", "deus", "levuaska", "carbon", "spacegray"]
-let g:currentcolour = trim(system("grep '^colorscheme' ~/.config/nvim/init.vim | head -1 | sed 's/colorscheme //'"))
-let g:usinglightline = index(g:colourlist, g:currentcolour) < 0 "if colorscheme not in list
-
 call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'SirVer/ultisnips'
 Plug 'tommason14/vim-snippets'
-if g:usinglightline
-  Plug 'itchyny/lightline.vim'
-endif
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/goyo.vim'               " Perfect for writing
 Plug 'tomtom/tcomment_vim'             " Comments
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
@@ -18,8 +12,9 @@ Plug 'ackyshake/Spacegray.vim'
 Plug 'morhetz/gruvbox'
 Plug 'tommason14/pywal.nvim'
 Plug 'cocopon/iceberg.vim'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'theniceboy/vim-deus'
+Plug 'michaeldyrynda/carbon'
+Plug 'EdenEast/nightfox.nvim'
 Plug 'lervag/vimtex'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -77,13 +72,13 @@ if has('persistent_undo')
     set undofile
 endif
 
-" Searching {{{1
+" Searching 
 set ignorecase " ignore case while searching
 set smartcase
 set hlsearch   " highlight results
 set incsearch  " search as you type
 
-" Ultisnips {{{1
+" Ultisnips 
 
 let g:UltiSnipsUsePythonVersion = 3
 let g:python3_host_prog = 'python3'
@@ -108,7 +103,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 au BufWinLeave *.snippets :FloatermNew --autoclose=2 update_snippets.sh
 
-" Remapping {{{1 
+" Remapping {{{1
 
 let mapleader = ","
 
@@ -257,7 +252,7 @@ inoremap . .<C-g>u
 nnoremap <C-n> :cnext<CR>
 nnoremap <C-p> :cprev<CR>
 
-" Python  {{{1 
+" Python {{{1
 
 au BufNewFile,BufRead *.py
     \ set tabstop=4                                  |
@@ -318,7 +313,7 @@ let g:vimtex_quickfix_open_on_warning = 0
 set conceallevel=0                        
 let g:tex_conceal='abdmg'                 
 
- " Shell {{{1
+" Shell {{{1
 
 au BufNewFile,BufRead *.sh,bash*,*lfrc*,*alias*
     \ set tabstop=2                         |
@@ -327,22 +322,22 @@ au BufNewFile,BufRead *.sh,bash*,*lfrc*,*alias*
     \ set shiftwidth=2                      |
     \ set filetype=bash                     | " better syntax highlighting
 
-
-" Config with Makefiles {{{1
-
-function Compile_on_save()
-  if filereadable('Makefile')
-    ! make install
-  endif
-endfunction
-
-au BufWritePost config.h call Compile_on_save()
+" run xrdb when saving ~/.Xresources 
+au BufWritePost ~/.Xresources !xrdb ~/.Xresources
 
 " Visuals {{{1
 
-set termguicolors
-colo pywal 
-let g:lightline = {'colorscheme': 'pywal'}
+" set termguicolors
+" colo catppuccin 
+" let g:lightline = {'colorscheme': 'catppuccin'}
+
+" set termguicolors
+" colo pywal 
+" let g:lightline = {'colorscheme': 'pywal'}
+
+" set termguicolors 
+" colo nightfox 
+" let g:lightline = {'colorscheme': 'nightfox'}
 
 " set t_Co=256
 " set background=dark
@@ -354,10 +349,6 @@ let g:lightline = {'colorscheme': 'pywal'}
 " hi folded guibg=NONE
 " " Statusline is one solid colour if regular vim, so fix with line below:
 " hi Statusline term=bold cterm=bold ctermfg=4 ctermbg=black
-
-" let g:tokyonight_style='storm'
-" colo tokyonight
-" let g:lightline = {'colorscheme': 'tokyonight'}
 
 " set termguicolors 
 " let g:gruvbox_contrast_dark='hard'
@@ -375,12 +366,29 @@ let g:lightline = {'colorscheme': 'pywal'}
 " hi Normal guibg=NONE 
 " hi SignColumn guibg=NONE 
 " hi LineNr guibg=NONE
+" call lightline#disable()
 
 " colo nord
 " let g:lightline = {'colorscheme': 'nord'}
 " hi Comment ctermfg=14 " brighter comments
 " hi Folded ctermfg=14
 " hi LineNr ctermfg=6
+
+" set termguicolors
+" colo carbon 
+" call lightline#disable()
+" hi Error gui=underline guifg=NONE cterm=underline ctermfg=NONE
+" " this modifies the statusline background on the right
+" hi CursorColumn guibg=#172030 ctermbg=black
+" hi LineNr guibg=NONE ctermbg=NONE
+" hi Folded guifg=NONE ctermfg=NONE
+
+set background=dark
+set termguicolors
+colorscheme iceberg
+let g:lightline = {"colorscheme" : "iceberg"}
+hi LineNr ctermbg=NONE guibg=NONE
+
 
 " Italic comments
 " First vim needs to know which characters to see to 
@@ -391,16 +399,6 @@ let &t_ZR="\e[23m"
 hi Comment cterm=italic gui=italic " Work for cases with and without `set termguicolors`
 hi Folded cterm=italic gui=italic guibg=NONE ctermbg=NONE " Italic and use terminal colours
 
-" Remove all backgrounds so that transparent background is used 
-hi Normal guibg=NONE 
-hi SignColumn guibg=NONE 
-hi LineNr guibg=NONE 
-hi MsgArea guibg=NONE
-let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
-let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
-let s:palette.inactive.middle = s:palette.normal.middle
-let s:palette.tabline.middle = s:palette.normal.middle
-
 " Changes style of highlighting
 hi clear SpellBad
 hi SpellBad cterm=underline gui=underline
@@ -408,7 +406,21 @@ set spellcapcheck=""
 hi clear SpellLocal
 hi clear Error 
 
-" Statusline hidden by lightline, shows if lightline not in use
+" Remove all backgrounds so that transparent background is used 
+" lightline has to be checked, and as plugins aren't loaded until after 
+" the vimrc has been read, this needs to be in /after
+hi Normal guibg=NONE 
+hi SignColumn guibg=NONE 
+hi LineNr guibg=NONE 
+hi MsgArea guibg=NONE
+if exists("g:lightline")
+  let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
+  let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
+  let s:palette.inactive.middle = s:palette.normal.middle
+  let s:palette.tabline.middle = s:palette.normal.middle
+endif
+
+" Backup statusline if lightline is not used
 source ~/.config/nvim/statusline.vim 
 
 " Lsp config {{{1
@@ -539,7 +551,7 @@ nnoremap <buffer> <silent> <leader>eq <cmd>lua vim.lsp.diagnostic.set_qflist()<C
 nnoremap <buffer> <silent> <leader>cn <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap <buffer> <silent> <leader>cp <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 
-" Telescope stuff {{{1
+" Telescope stuff {{{1 
 
 lua << EOF
 local tele = require('telescope')

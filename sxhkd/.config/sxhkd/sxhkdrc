@@ -6,13 +6,17 @@
 super + Return
 	st
 
+# floating terminal / scratchpad
+super + alt + Return
+        scratchpadtoggle
+
 # program launcher
 super + @space 
 	rofi -show drun -show-icons
 
-# dmenu with pywal colours
+# dmenu run prompt
 super + d
-	~/bin/dmen_run
+	dmenu_run
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -23,7 +27,7 @@ super + b
         brave
 
 # bluetooth control
-super + shift + b
+super + alt + b
         blueman-manager
 
 # audio control
@@ -34,13 +38,29 @@ super + p
 super + alt + c
 	bash ~/bin/confs
 
-# select random wallpaper and run pywal
-super + alt + w 
-	~/wallpapers/random_wallpaper_linux.sh
+# ideas 
+super + alt + i 
+        ideas
+
+# set power profile 
+super + alt + p 
+        ~/bin/powerset
 
 # unicode 
 super + alt + u 
         ~/bin/unicode.sh
+
+# select random wallpaper and run pywal
+super + alt + w 
+	~/wallpapers/random_wallpaper_linux.sh
+
+# rofi power menu 
+super + alt + x 
+        rofi -show power-menu -modi power-menu:rofi-power-menu
+
+# spotify
+super + alt + s 
+        spotify
 
 # bspwm hotkeys
 

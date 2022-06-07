@@ -5,3 +5,131 @@ Xft.hintstyle:  hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
+
+#include "/home/tom/.cache/wal/dmenu.xresources"
+
+! Nord 
+! #define nord0 #2E3440
+! #define nord1 #3B4252
+! #define nord2 #434C5E
+! #define nord3 #4C566A
+! #define nord4 #D8DEE9
+! #define nord5 #E5E9F0
+! #define nord6 #ECEFF4
+! #define nord7 #8FBCBB
+! #define nord8 #88C0D0
+! #define nord9 #81A1C1
+! #define nord10 #5E81AC
+! #define nord11 #BF616A
+! #define nord12 #D08770
+! #define nord13 #EBCB8B
+! #define nord14 #A3BE8C
+! #define nord15 #B48EAD
+!
+! *.foreground:   nord4
+! *.background:   nord0
+! *.cursorColor:  nord4
+!
+! *.color0: nord1
+! *.color1: nord11
+! *.color2: nord14
+! *.color3: nord13
+! *.color4: nord9
+! *.color5: nord15
+! *.color6: nord8
+! *.color7: nord5
+! *.color8: nord3
+! *.color9: nord11
+! *.color10: nord14
+! *.color11: nord13
+! *.color12: nord9
+! *.color13: nord15
+! *.color14: nord7
+! *.color15: nord6
+
+! catppuccin 
+! *.color0: #6E6C7E
+! *.color1: #F28FAD
+! *.color2: #ABE9B3
+! *.color3: #FAE3B0
+! *.color4: #96CDFB
+! *.color5: #F5C2E7
+! *.color6: #89DCEB
+! *.color7: #D9E0EE
+! *.color8: #988BA2
+! *.color9: #F28FAD
+! *.color10: #ABE9B3
+! *.color11: #FAE3B0
+! *.color12: #96CDFB
+! *.color13: #F5C2E7
+! *.color14: #89DCEB
+! *.color15: #D9E0EE
+! *foreground: #D9E0EE
+! *background: #1E1E2E
+! *cursorColor: #C3BAC6
+
+! pywal
+! #include "/home/tom/.cache/wal/colors.Xresources"
+
+! Carbon 
+! *color0: #172030
+! *color1: #DB6E89
+! *color2: #FFAE8F
+! *color3: #F9B5AC
+! *color4: #B87EA2
+! *color5: #73A7A7
+! *color6: #F2C4B3
+! *color7: #C9CCCD
+! *color8: #465063
+! *color9: #db6e89
+! *color10: #ffa0a0
+! *color11: #F9B5AC
+! *color12: #B87EA2
+! *color13: #73A7A7
+! *color14: #F2C4B3
+! *color15: #C9CCCD
+! *foreground: #73A7A7
+! *background: #172030
+! *cursorColor: #73A7A7
+
+! deus 
+! *color0: #242a32
+! *color1: #d54e53
+! *color2: #98c379
+! *color3: #e5c07b
+! *color4: #83a598
+! *color5: #c678dd
+! *color6: #70c0ba
+! *color7: #eaeaea
+! *color8: #666666
+! *color9: #ec3e45
+! *color10: #90c966
+! *color11: #edbf69
+! *color12: #73ba9f
+! *color13: #c858e9
+! *color14: #2bcec2
+! *color15: #ffffff
+! *foreground: #ffffff 
+! *background: #242a32 
+! *cursorColor: #ffffff
+
+! iceberg 
+*color0: #161821
+*color1: #e27878
+*color2: #b4be82
+*color3: #e2a478
+*color4: #84a0c6
+*color5: #a093c7
+*color6: #89b8c2
+*color7: #c6c8d1
+*color8: #6b7089
+*color9: #e98989
+*color10: #c0ca8e
+*color11: #e9b189
+*color12: #91acd1
+*color13: #ada0d3
+*color14: #95c4ce
+*color15: #d2d4de
+*foreground: #d2d4de
+*background: #161821
+*cursorColor: #e8e9ec
