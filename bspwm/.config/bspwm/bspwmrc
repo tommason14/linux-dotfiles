@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # now run in ~/.xinitrc
-# sxhkd &
+sxhkd &
 ~/.screenlayout/two-monitor-xorg.sh
 lxqt-policykit-agent &
 
@@ -27,6 +27,7 @@ bspc rule -a VMD state=floating
 # for tdrop, st is given the name 'floating'
 bspc rule -a floating state=floating center=true focus=on
 bspc rule -a scratchpad state=floating center=true sticky=on hidden=on
+bspc rule -a Cheese state=floating center=true focus=on
 
 st -c scratchpad &
 
@@ -39,4 +40,4 @@ feh --bg-fill $(cat ~/.cache/wal/wal) &
 xrdb ~/.Xresources
 # set screen brightness to 30%
 light -S 30
-# rclone mount --daemon gdrive: ~/gdrive --vfs-cache-mode full &  
+rclone mount --daemon gdrive: ~/gdrive --vfs-cache-mode full

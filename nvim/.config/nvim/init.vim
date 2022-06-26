@@ -127,8 +127,8 @@ xnoremap <C-Down> :move '>+1<CR>gv-gv
 " Try out additional escape
 inoremap jj <Esc>
 
-" Sort selected text alphabetically
-vnoremap <Leader>s :sort<CR>
+" Sort selected text case-insensitively
+vnoremap <Leader>s :sort i<CR>
 
 " Copy/paste to/from clipboard
 
@@ -325,14 +325,21 @@ au BufNewFile,BufRead *.sh,bash*,*lfrc*,*alias*
 " run xrdb when saving ~/.Xresources 
 au BufWritePost ~/.Xresources !xrdb ~/.Xresources
 
+" Go {{{1 
+au BufNewFile,BufRead *.go
+    \ set tabstop=4                         |
+    \ set softtabstop=4                     |
+    \ set expandtab                         |
+    \ set shiftwidth=4                      |
+
 " Visuals {{{1
 
-" set termguicolors
-" colo catppuccin 
-" let g:lightline = {'colorscheme': 'catppuccin'}
+set termguicolors
+colo catppuccin 
+let g:lightline = {'colorscheme': 'catppuccin'}
 
 " set termguicolors
-" colo pywal 
+" colo pywal
 " let g:lightline = {'colorscheme': 'pywal'}
 
 " set termguicolors 
@@ -383,11 +390,11 @@ au BufWritePost ~/.Xresources !xrdb ~/.Xresources
 " hi LineNr guibg=NONE ctermbg=NONE
 " hi Folded guifg=NONE ctermfg=NONE
 
-set background=dark
-set termguicolors
-colorscheme iceberg
-let g:lightline = {"colorscheme" : "iceberg"}
-hi LineNr ctermbg=NONE guibg=NONE
+" set background=dark
+" set termguicolors
+" colorscheme iceberg
+" let g:lightline = {"colorscheme" : "iceberg"}
+" hi LineNr ctermbg=NONE guibg=NONE
 
 
 " Italic comments

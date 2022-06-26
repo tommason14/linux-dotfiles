@@ -1,2 +1,5 @@
 set sandbox none
 map = zoom in
+
+set window-height 2500
+set window-width 1600

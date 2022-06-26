@@ -72,6 +72,7 @@ alias skrc="$EDITOR ~/.config/sxhkd/sxhkdrc"
 alias ala="$EDITOR ~/.config/alacritty/alacritty.yml"
 alias kit="$EDITOR ~/.config/kitty/kitty.conf"
 alias ozh="$EDITOR ~/.zshrc"
+alias xres="$EDITOR ~/.Xresources"
 
 # colours
 # if command -v theme.sh > /dev/null; then
@@ -102,6 +103,7 @@ mkcd() {
 }
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 pymol(){
 /usr/bin/pymol $@ -d "@~/.config/pymol/pymolrc"
