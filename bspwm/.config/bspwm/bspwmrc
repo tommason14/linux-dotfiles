@@ -35,6 +35,7 @@ libinput-gestures &
 
 picom --backend glx --vsync &
 feh --bg-fill $(cat ~/.cache/wal/wal) &
+dunst &
 ~/.config/polybar/launch.sh
 # polybar calls pywal, so now reset terminal colours
 xrdb ~/.Xresources

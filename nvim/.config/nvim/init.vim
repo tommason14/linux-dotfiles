@@ -334,9 +334,9 @@ au BufNewFile,BufRead *.go
 
 " Visuals {{{1
 
-set termguicolors
-colo catppuccin 
-let g:lightline = {'colorscheme': 'catppuccin'}
+" set termguicolors
+" colo catppuccin 
+" let g:lightline = {'colorscheme': 'catppuccin'}
 
 " set termguicolors
 " colo pywal
@@ -390,11 +390,11 @@ let g:lightline = {'colorscheme': 'catppuccin'}
 " hi LineNr guibg=NONE ctermbg=NONE
 " hi Folded guifg=NONE ctermfg=NONE
 
-" set background=dark
-" set termguicolors
-" colorscheme iceberg
-" let g:lightline = {"colorscheme" : "iceberg"}
-" hi LineNr ctermbg=NONE guibg=NONE
+set background=dark
+set termguicolors
+colorscheme iceberg
+let g:lightline = {"colorscheme" : "iceberg"}
+hi LineNr ctermbg=NONE guibg=NONE
 
 
 " Italic comments

@@ -168,6 +168,10 @@ super + alt + equal
 super + alt + minus
         bspc node -z left 10 0 && bspc node -z bottom 0 -10 && bspc node -z top 0 10 && bspc node -z right -10 0
 
+# reset windows to their default size
+super + alt + 0
+        bspc node @/ -E
+
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
