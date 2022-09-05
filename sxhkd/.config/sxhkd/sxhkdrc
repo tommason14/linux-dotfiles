@@ -2,6 +2,12 @@
 # wm independent hotkeys
 #
 
+super + c 
+        xte "keyup Meta_L" "keyup Meta_R" "keyup c" "keydown Control_L" "key c" "keyup Control_L"
+
+super + v 
+        xte "keyup Super_L" "keyup v" "keydown Control_L" "key v" "keyup Control_L"
+
 # terminal emulator
 super + Return
 	st
@@ -50,9 +56,9 @@ super + alt + p
 super + alt + u 
         ~/bin/unicode.sh
 
-# select random wallpaper and run pywal
+# select random wallpaper and run pywal, but do not change terminal colourscheme
 super + alt + w 
-	~/wallpapers/random_wallpaper_linux.sh
+	~/wallpapers/random_wallpaper_linux.sh -s
 
 # rofi power menu 
 super + alt + x 
@@ -186,7 +192,7 @@ XF86KbdBrightness{Up,Down}
 
 # volume
 XF86Audio{Raise,Lower}Volume
-	amixer -D pipewire sset Master {1%+,1%-}
+	amixer -D pipewire sset Master {1%+,1%-} && dunstify -C 3 && notify-send "Volume: $(printf "%.0f%%" $(amixer -D pipewire sget Master | grep -oP '\d+(?=%)' | head -1))" -t 800 -r 3
 
 # toggle mute
 XF86AudioMute

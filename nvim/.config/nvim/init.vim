@@ -27,7 +27,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'dccsillag/magma-nvim', {'do': ':UpdateRemotePlugins'}
 call plug#end()
@@ -81,7 +81,7 @@ set incsearch  " search as you type
 " Ultisnips 
 
 let g:UltiSnipsUsePythonVersion = 3
-let g:python3_host_prog = 'python3'
+let g:python3_host_prog = 'python'
 
 " Load snippets
 
@@ -306,12 +306,11 @@ au BufNewFile,BufRead *.tex
     \ set spell spelllang=en_gb             |
     \ nnoremap <Leader>o :!open %:r.pdf <CR> |
     \ let b:copilot_enabled = 0 |
-
-let g:vimtex_engine = 'xelatex'
-let g:vimtex_view_method='zathura'           
-let g:vimtex_quickfix_open_on_warning = 0 
-set conceallevel=0                        
-let g:tex_conceal='abdmg'                 
+    \ let g:vimtex_engine = 'xelatex' |
+    \ let g:vimtex_view_method='zathura' |           
+    \ let g:vimtex_quickfix_open_on_warning = 0 |
+    \ set conceallevel=0 |                       
+    \ let g:tex_conceal='abdmg' |                 
 
 " Shell {{{1
 
@@ -375,11 +374,11 @@ au BufNewFile,BufRead *.go
 " hi LineNr guibg=NONE
 " call lightline#disable()
 
-" colo nord
-" let g:lightline = {'colorscheme': 'nord'}
-" hi Comment ctermfg=14 " brighter comments
-" hi Folded ctermfg=14
-" hi LineNr ctermfg=6
+colo nord
+let g:lightline = {'colorscheme': 'nord'}
+hi Comment ctermfg=14 " brighter comments
+hi Folded ctermfg=14
+hi LineNr ctermfg=6
 
 " set termguicolors
 " colo carbon 
@@ -390,11 +389,11 @@ au BufNewFile,BufRead *.go
 " hi LineNr guibg=NONE ctermbg=NONE
 " hi Folded guifg=NONE ctermfg=NONE
 
-set background=dark
-set termguicolors
-colorscheme iceberg
-let g:lightline = {"colorscheme" : "iceberg"}
-hi LineNr ctermbg=NONE guibg=NONE
+" set background=dark
+" set termguicolors
+" colorscheme iceberg
+" let g:lightline = {"colorscheme" : "iceberg"}
+" hi LineNr ctermbg=NONE guibg=NONE
 
 
 " Italic comments
@@ -503,12 +502,6 @@ nvim_lsp.gopls.setup{
  on_attach = on_attach,
 }
 
--- markdown
-nvim_lsp.zeta_note.setup{
-  cmd = {'~/.local/bin/zeta-note'},
-  on_attach = on_attach
-}
-
 -- Location information about the last message printed. The format is
 -- `(did print, buffer number, line number)`.
 local last_echo = { false, -1, -1 }
@@ -578,8 +571,3 @@ nnoremap [b :bprev<CR>
 nnoremap bn :bnext<CR>
 nnoremap bp :bprev<CR>
 nnoremap bd :bdelete<CR>
-" or with tab key 
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprev<CR>
-nnoremap <Leader>x :bdelete<CR>
-
