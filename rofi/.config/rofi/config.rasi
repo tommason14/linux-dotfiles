@@ -3,7 +3,7 @@
 
 
 configuration {
-font: "Hack 20";
+font: "DejaVuSansMono Nerd Font 22";
 modi: [window,run,ssh,drun];
 
 }

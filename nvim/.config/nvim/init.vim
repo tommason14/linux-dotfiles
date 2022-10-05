@@ -10,7 +10,7 @@ Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'arcticicestudio/nord-vim'
 Plug 'ackyshake/Spacegray.vim'
 Plug 'morhetz/gruvbox'
-Plug 'tommason14/pywal.nvim'
+Plug 'dylanaraps/wal.vim'
 Plug 'cocopon/iceberg.vim'
 Plug 'theniceboy/vim-deus'
 Plug 'michaeldyrynda/carbon'
@@ -333,13 +333,12 @@ au BufNewFile,BufRead *.go
 
 " Visuals {{{1
 
-" set termguicolors
-" colo catppuccin 
-" let g:lightline = {'colorscheme': 'catppuccin'}
+set termguicolors
+colo catppuccin 
+let g:lightline = {'colorscheme': 'catppuccin'}
 
-" set termguicolors
-" colo pywal
-" let g:lightline = {'colorscheme': 'pywal'}
+" colo wal
+" let g:lightline = {'colorscheme': 'wal'}
 
 " set termguicolors 
 " colo nightfox 
@@ -374,11 +373,11 @@ au BufNewFile,BufRead *.go
 " hi LineNr guibg=NONE
 " call lightline#disable()
 
-colo nord
-let g:lightline = {'colorscheme': 'nord'}
-hi Comment ctermfg=14 " brighter comments
-hi Folded ctermfg=14
-hi LineNr ctermfg=6
+" colo nord
+" let g:lightline = {'colorscheme': 'nord'}
+" hi Comment ctermfg=14 " brighter comments
+" hi Folded ctermfg=14
+" hi LineNr ctermfg=6
 
 " set termguicolors
 " colo carbon 

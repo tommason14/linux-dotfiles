@@ -7,7 +7,7 @@ window:
   padding:
     x: 15
     y: 15
-  opacity: 0.9
+  opacity: 0.85
 
 scrolling:
   history: 10000
@@ -188,7 +188,7 @@ schemes:
       cyan:    '#2bcec2'
       white:   '#ffffff'
 
-# colors: *deus
+# colors: *catppuccin
 import:
   - ~/.cache/wal/colors-alacritty.yml
 
