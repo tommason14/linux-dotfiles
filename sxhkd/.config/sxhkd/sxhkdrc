@@ -34,7 +34,7 @@ alt + Escape
 
 # web browser
 alt + b
-        brave
+        firefox
 
 # bluetooth control
 alt + super + b
@@ -61,8 +61,8 @@ alt + super + u
         ~/bin/unicode.sh
 
 # select random wallpaper and run pywal, but do not change terminal colourscheme
-alt + super + w 
-	wal -i ~/Pictures/wallpapers && xrdb ~/.Xresources
+alt + super + w
+        wal -i ~/Pictures/wallpapers && xrdb ~/.Xresources
 
 # rofi power menu 
 alt + super + x 

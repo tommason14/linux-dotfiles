@@ -7,7 +7,7 @@ setxkbmap gb
 
 feh --bg-fill $(cat ~/.cache/wal/wal) &
 dunst &
-picom --backend=glx &
+picom --experimental-backends &
 bash ~/.config/polybar/launch.sh &
 lxqt-policykit-agent &
 
