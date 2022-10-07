@@ -22,8 +22,6 @@ then
 fi
 export PATH 
 
-source ~/.zshrc-personal
-
 # Vi mode
 bindkey -v
 export KEYTIMEOUT=1
@@ -33,9 +31,9 @@ bindkey "^?" backward-delete-char # backspace fix
 autoload -U compinit && compinit
 zstyle ':completion:*' menu select
 
-export BROWSER=brave
+export BROWSER=firefox
 export EDITOR=nvim
-export TERMINAL=st
+export TERMINAL=alacritty
 alias v="$EDITOR"
 alias vim="$EDITOR"
 
@@ -83,7 +81,7 @@ alias xres="$EDITOR ~/.Xresources"
 # using pywal
 # cat ~/.cache/wal/sequences
 
-alias wr=~/wallpapers/random_wallpaper_linux.sh
+alias wr='wal -i ~/Pictures/wallpapers && xrdb ~/.Xresources'
 
 # use terminal transparency
 alias fzf='fzf --color "bg:-1"'
@@ -109,8 +107,6 @@ pymol(){
 /usr/bin/pymol $@ -d "@~/.config/pymol/pymolrc"
 }
 
-export st=~/src/st
-
 export GOPATH=$HOME/go
 export PATH=$HOME/go/bin:$PATH
 
@@ -126,7 +122,7 @@ wal(){
 }
 
 # apple bluetooth keyboard mapping
-bluetoothctl info C8:E0:EB:02:7A:DB | grep -q 'Connected: yes' && setxkbmap -option apple:badmap
+# bluetoothctl info C8:E0:EB:02:7A:DB | grep -q 'Connected: yes' && setxkbmap -option apple:badmap
 
 
 # export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
