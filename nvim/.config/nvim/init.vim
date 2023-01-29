@@ -29,7 +29,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'github/copilot.vim'
 Plug 'lewis6991/gitsigns.nvim'
-Plug 'dccsillag/magma-nvim', {'do': ':UpdateRemotePlugins'}
+" Plug 'dccsillag/magma-nvim', {'do': ':UpdateRemotePlugins'}
 call plug#end()
 
 " Basics {{{1
@@ -333,12 +333,12 @@ au BufNewFile,BufRead *.go
 
 " Visuals {{{1
 
-set termguicolors
-colo catppuccin 
-let g:lightline = {'colorscheme': 'catppuccin'}
+" set termguicolors
+" colo catppuccin 
+" let g:lightline = {'colorscheme': 'catppuccin'}
 
-" colo wal
-" let g:lightline = {'colorscheme': 'wal'}
+colo wal
+let g:lightline = {'colorscheme': 'wal'}
 
 " set termguicolors 
 " colo nightfox 

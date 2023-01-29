@@ -1,0 +1,56 @@
+#!/usr/bin/bash
+
+# replace polybar with a dmenu script to find the same information 
+
+Weather(){
+echo "Weather: $(curl -s wttr.in/Hinckley,United+Kingdom\?format='%t' | sed 's/+//')"
+}
+
+Volume(){
+echo "Volume: $(amixer sget Master | grep "Front Left" | tail -1 | awk '{print $(NF-1)}' | sed 's/[][]//g')"
+}
+
+Battery(){
+acpi | cut -d: -f 2-
+}
+
+RAM(){
+free | grep Mem | awk '{printf "RAM Used: %.0f%%", $3/$2*100}'
+}
+
+CPU(){
+mpstat | tail -1 | awk '{printf "CPU Used: %.0f%%", 100-$NF}'
+}
+
+CPU_Temp(){
+sensors | grep Core | awk '{print $3}' | sed 's/+//;s/°C//' | awk '{sum+=$1} END {printf "Ave. CPU Temp: %.0f°C", sum/NR}'
+}
+
+Time(){
+date "+%H:%M"
+}
+
+WIFI(){
+nmcli -f GENERAL.CONNECTION dev show wlan0 | awk '{printf "WIFI: %s", $NF}'
+}
+
+Memory(){ 
+df -h | grep '/$' | awk '{printf "Mem Used: %s", $(NF-1)}'
+}
+
+# funcs=(Weather Memory Volume Battery RAM CPU CPU_Temp Time WIFI)
+# choice=$(printf "%s\n" "${funcs[@]}" | dmenu -i -l ${#funcs[@]})
+# notify-send "$($choice)"
+
+declare -A funcs
+funcs["WEA"]=Weather 
+funcs["/"]=Memory 
+funcs["VOL"]=Volume 
+funcs["BAT"]=Battery 
+funcs["RAM"]=RAM 
+funcs["CPU"]=CPU 
+funcs[" TEMP"]=CPU_Temp 
+funcs["Time"]=Time 
+funcs["WIFI"]=WIFI
+choice=$(printf "%s\n" "${!funcs[@]}" | dmenu -i)
+notify-send "$(${funcs[$choice]})" -t 500

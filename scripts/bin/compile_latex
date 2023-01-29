@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+[[ $# -ne 1 || $1 =~ "-h" ]] && echo "Syntax: $(basename $0) file.tex" && exit 1
+
+xelatex $1
+bibtex ${1%.tex}
+xelatex $1
+xelatex $1

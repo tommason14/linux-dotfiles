@@ -3,15 +3,18 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 xsetroot -cursor_name left_ptr & 
-setxkbmap gb
+setxkbmap gb -variant mac
 
 feh --bg-fill $(cat ~/.cache/wal/wal) &
 dunst &
-picom --experimental-backends &
+picom &
 bash ~/.config/polybar/launch.sh &
 lxqt-policykit-agent &
+light -S 10
+amixer set Master 15%
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+# bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor -d I II III IV V
 
 bspc config border_width          2
 bspc config window_gap            12

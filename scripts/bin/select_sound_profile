@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+[[ $# -gt 1 || $1 =~ "-h" ]] && echo "Select sound output using fzf. Use this script to switch output from speakers to headphones, for example" && exit 1
+
+declare -A profiles 
+
+profiles[Headphones]="pactl set-card-profile alsa_card.pci-0000_02_00.3 output:codec-output+input:builtin-mic"
+profiles[Speakers]="pactl set-card-profile alsa_card.pci-0000_02_00.3 output:builtin-speaker+input:builtin-mic"
+
+profile=$(printf "%s\n" "${!profiles[@]}" | dmenu -i -p "Profile: ")     
+[[ -z $profile ]] && exit 1
+notify-send -t 1000 "Sound output profile: $profile"
+eval "${profiles[$profile]}"

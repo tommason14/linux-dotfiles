@@ -1,0 +1,7 @@
+#!/usr/bin/env bash 
+
+options="performance balanced power-saver"
+
+opt="$(printf "%s\n" ${options[@]} | dmenu -p 'profile')"
+
+powerprofilesctl set $opt && notify-send "Power profile set to $opt" -t 1000

@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# If in a shell already, select with fzf and open in current terminal 
+# Otherwise, select with dmenu and open in new terminal window
+
+declare -A confs 
+confs[alacritty]=~/.config/alacritty/alacritty.yml
+confs[bspwm]=~/.config/bspwm/bspwmrc
+confs[dunst]=~/.config/dunst/dunstrc
+confs[lf]=~/.config/lf/lfrc
+confs[neovim]=~/.config/nvim/init.vim
+confs[picom]=~/.config/picom/picom.conf
+confs[polybar]=~/.config/polybar/config.ini
+confs[rofi]=~/.config/rofi/config.rasi
+confs[starship]=~/.config/starship/starship.toml
+confs[sxhkd]=~/.config/sxhkd/sxhkdrc
+confs[tmux]=~/.config/tmux/tmux.conf
+confs[zathura]=~/.config/zathura/zathurarc
+confs[zsh]=~/.zshrc
+confs[xresources]=~/.Xresources
+
+if [[ -t 0 ]] 
+then 
+  selection=$(printf "%s\n" "${!confs[@]}" | fzf)
+  [[ -z "$selection" ]] && exit 1
+  $EDITOR ${confs[$selection]} 
+else
+  selection=$(printf "%s\n" "${!confs[@]}" | dmenu -l ${#confs[@]} -p "Conf: ")
+  [[ -z "$selection" ]] && exit 1
+  tdrop -x 10% -y 10% -h 80% -w 80% -a alacritty -e "$EDITOR" "${confs[$selection]}"
+fi

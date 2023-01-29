@@ -31,7 +31,7 @@ bindkey "^?" backward-delete-char # backspace fix
 autoload -U compinit && compinit
 zstyle ':completion:*' menu select
 
-export BROWSER=firefox
+export BROWSER=brave
 export EDITOR=nvim
 export TERMINAL=alacritty
 alias v="$EDITOR"
@@ -78,10 +78,7 @@ alias xres="$EDITOR ~/.Xresources"
 # fi
 # darkmoss, oceanic next good with gruvbox vim theme
 
-# using pywal
-# cat ~/.cache/wal/sequences
-
-alias wr='wal -i ~/Pictures/wallpapers && xrdb ~/.Xresources'
+alias wr='wal -i ~/wallpapers && xrdb ~/.Xresources'
 
 # use terminal transparency
 alias fzf='fzf --color "bg:-1"'
@@ -117,13 +114,17 @@ tmux new-window -n python "nvim /tmp/tmp.py -c 'startinsert'" && tmux split-pane
 }
 
 # run pywal as normal, but don't want to overwrite ST terminal colours, so run xrdb after 
-wal(){
-  /home/tom/.local/bin/wal "$@" && xrdb ~/.Xresources
-}
+# wal(){
+#   /home/tom/.local/bin/wal "$@" && xrdb ~/.Xresources
+# }
 
 # apple bluetooth keyboard mapping
 # bluetoothctl info C8:E0:EB:02:7A:DB | grep -q 'Connected: yes' && setxkbmap -option apple:badmap
 
+# brave browser reassign command for scaling (hopefully dmenu recognises this
+brave(){
+	/usr/bin/brave --force-device-scale-factor=2 $@
+}
 
 # export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 # eval "$(starship init zsh)"

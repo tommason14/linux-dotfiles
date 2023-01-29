@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# if terminal not available, create it 
+if ! ps aux | grep "st.*scratchpad" | grep -qv grep 
+then 
+  st -c scratchpad &
+  sleep 0.1 # wait for st to start so that the id can be found 
+fi
+
+id=$(xdotool search --class scratchpad)
+
+if [ "$id" != "" ]
+ then
+  bspc node "$id" --flag hidden -f
+fi
