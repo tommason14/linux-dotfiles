@@ -3,7 +3,7 @@
 
 
 configuration {
-font: "DejaVuSansMono Nerd Font 22";
+font: "JetBrainsMono Nerd Font 22";
 modi: [window,run,ssh,drun];
 
 }
