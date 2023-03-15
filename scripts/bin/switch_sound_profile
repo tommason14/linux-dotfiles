@@ -1,0 +1,4 @@
+#!/usr/bin/bash 
+
+currentsink="$(pactl get-default-sink | rev | cut -d. -f1 | rev)"
+[[ $currentsink =~ "Speakers" ]] && pactl set-default-sink alsa_output.pci-0000_02_00.3.Headphones || pactl set-default-sink alsa_output.pci-0000_02_00.3.Speakers

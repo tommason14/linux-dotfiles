@@ -4,8 +4,8 @@
 
 declare -A profiles 
 
-profiles[Headphones]="pactl set-card-profile alsa_card.pci-0000_02_00.3 output:codec-output+input:builtin-mic"
-profiles[Speakers]="pactl set-card-profile alsa_card.pci-0000_02_00.3 output:builtin-speaker+input:builtin-mic"
+profiles[Headphones]="pactl set-default-sink alsa_output.pci-0000_02_00.3.Headphones"
+profiles[Speakers]="pactl set-default-sink alsa_output.pci-0000_02_00.3.Speakers"
 
 profile=$(printf "%s\n" "${!profiles[@]}" | dmenu -i -p "Profile: ")     
 [[ -z $profile ]] && exit 1
