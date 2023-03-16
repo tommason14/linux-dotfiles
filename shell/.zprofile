@@ -23,5 +23,4 @@ if [ -f ~/.zshrc ]; then
     source ~/.zshrc
 fi
 
-[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx
-
+# [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx

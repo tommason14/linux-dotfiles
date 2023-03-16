@@ -18,7 +18,7 @@
     idle_threshold = 120
 
     # Font and typography settings
-    font = DejaVu Sans Mono 10
+    font = JetBrainsMono 10
     alignment = center
     word_wrap = yes
 

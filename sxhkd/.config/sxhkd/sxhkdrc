@@ -11,7 +11,7 @@ alt + v
 
 # terminal emulator
 super + Return
-	alacritty
+	st
 
 # floating terminal / scratchpad
 super + alt + Return
@@ -27,7 +27,7 @@ super + d
 
 # file browser 
 super + r 
-        alacritty -e lf
+        st -e lf
 
 # make sxhkd reload its configuration files:
 super + Escape

@@ -100,10 +100,6 @@ mkcd() {
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-pymol(){
-/usr/bin/pymol $@ -d "@~/.config/pymol/pymolrc"
-}
-
 export GOPATH=$HOME/go
 export PATH=$HOME/go/bin:$PATH
 

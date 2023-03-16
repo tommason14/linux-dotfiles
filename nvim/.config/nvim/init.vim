@@ -8,6 +8,7 @@ Plug 'junegunn/goyo.vim'               " Perfect for writing
 Plug 'tomtom/tcomment_vim'             " Comments
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'arcticicestudio/nord-vim'
+Plug 'folke/tokyonight.nvim'
 Plug 'ackyshake/Spacegray.vim'
 Plug 'morhetz/gruvbox'
 Plug 'dylanaraps/wal.vim'
@@ -81,7 +82,7 @@ set incsearch  " search as you type
 " Ultisnips 
 
 let g:UltiSnipsUsePythonVersion = 3
-let g:python3_host_prog = 'python'
+let g:python3_host_prog = '/sbin/python3'
 
 " Load snippets
 
@@ -337,8 +338,12 @@ au BufNewFile,BufRead *.go
 " colo catppuccin 
 " let g:lightline = {'colorscheme': 'catppuccin'}
 
-colo wal
-let g:lightline = {'colorscheme': 'wal'}
+set termguicolors 
+colo tokyonight 
+let g:lightline = {'colorscheme': 'tokyonight'}
+
+" colo wal
+" let g:lightline = {'colorscheme': 'wal'}
 
 " set termguicolors 
 " colo nightfox 

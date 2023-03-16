@@ -1,9 +1,6 @@
-/* @theme "/usr/share/rofi/themes/Arc-Dark.rasi" */
-@import "~/.cache/wal/colors-rofi-dark"
-
+@import "tokyonight"
 
 configuration {
 font: "JetBrainsMono Nerd Font 22";
 modi: [window,run,ssh,drun];
-
 }
