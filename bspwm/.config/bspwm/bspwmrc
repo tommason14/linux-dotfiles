@@ -5,6 +5,8 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 xsetroot -cursor_name left_ptr & 
 setxkbmap gb -variant mac
 
+xrdb ~/.Xresources
+
 feh --bg-fill $(cat ~/.cache/wal/wal) &
 dunst &
 picom &

@@ -1,6 +1,6 @@
 @import "tokyonight"
 
 configuration {
-font: "JetBrainsMono Nerd Font 22";
+font: "JetBrainsMono Nerd Font 20";
 modi: [window,run,ssh,drun];
 }
